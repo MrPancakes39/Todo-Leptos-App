@@ -1,6 +1,6 @@
 use super::item::Todo;
 use leptos::{ev::SubmitEvent, html::Input, *};
-use log::info;
+// use log::info;
 
 #[derive(Debug, Clone)]
 struct TodoItem {
@@ -33,7 +33,7 @@ pub fn TodoContainer(cx: Scope) -> impl IntoView {
                 })
             });
             input.set_value("");
-            info!("{:#?}", todos.get());
+            // info!("{:#?}", todos.get());
         }
     };
 
