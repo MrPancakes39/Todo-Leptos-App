@@ -1,5 +1,6 @@
 use leptos::*;
 
+#[component]
 pub fn Styles(cx: Scope) -> impl IntoView {
     view! {cx,
     <style>r#"

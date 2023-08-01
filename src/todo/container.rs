@@ -7,6 +7,7 @@ struct TodoItem {
     key: u32,
 }
 
+#[component]
 pub fn TodoContainer(cx: Scope) -> impl IntoView {
     let (todos, set_todos) = create_signal(cx, Vec::<TodoItem>::new());
     let (warning, set_warning) = create_signal(cx, Some(""));
