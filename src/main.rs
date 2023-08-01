@@ -2,6 +2,7 @@ mod style;
 mod todo;
 
 use leptos::*;
+use log::Level;
 use style::Styles;
 use todo::TodoContainer;
 
@@ -17,5 +18,6 @@ fn App(cx: Scope) -> impl IntoView {
 }
 
 fn main() {
+    console_log::init_with_level(Level::Debug).expect("error initializing logger");
     mount_to_body(|cx| view! { cx,  <App/> })
 }
