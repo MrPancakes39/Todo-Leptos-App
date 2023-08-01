@@ -44,7 +44,10 @@ pub fn TodoContainer(cx: Scope) -> impl IntoView {
             {move|| warning.get().map(|msg| view! {cx, <div>{msg}</div>})}
             <div class="todos">
                 <For each=move||todos.get() key=|todo|todo.key view=move|cx, todo|{
-                    view! {cx, <Todo todo={todo.text} /> }
+                    view! {cx, <Todo todo={todo.text}
+                                     remove=move|_|set_todos.update(|v| v.retain(|td| td.key != todo.key))
+                                />
+                    }
                 } />
             </div>
             <div class="form-group">
