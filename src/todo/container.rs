@@ -22,10 +22,9 @@ pub fn TodoContainer(cx: Scope) -> impl IntoView {
             set_warning.set(Some("Can't add empty item."));
         } else {
             set_warning.set(None);
-            let new_key = match todos.get().iter().next_back() {
-                Some(todo) => todo.key + 1,
-                None => 0,
-            };
+            let new_key = todos
+                .with(|v| v.last().map(|todo| todo.key + 1))
+                .unwrap_or(0);
             set_todos.update(|v| {
                 v.push(TodoItem {
                     text: value,

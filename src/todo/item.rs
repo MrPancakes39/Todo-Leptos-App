@@ -3,7 +3,7 @@ use leptos::{ev::MouseEvent, *};
 #[component]
 pub fn Todo<F>(cx: Scope, todo: String, remove: F) -> impl IntoView
 where
-    F: FnMut(MouseEvent) -> () + 'static,
+    F: FnMut(MouseEvent) + 'static,
 {
     view! {cx,
         <div class="todo-item">
